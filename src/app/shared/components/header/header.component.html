@@ -1,0 +1,20 @@
+<mat-toolbar class="header">
+  <div class="logo">BlockTrust</div>
+  <div class="blockchain-toggle-button">
+    MetaMask
+    <div class="orv-slide-toggle">
+      <mat-slide-toggle color="yellow" (click)="$event.stopPropagation()" [checked]="ethereumIsEnabled"
+                        (change)="switchBlockchain($event)"></mat-slide-toggle>
+    </div>
+  </div>
+  <div class="logout">
+    <button mat-flat-button (click)="logoutOauth()" class="logout-button">Logout</button>
+  </div>
+</mat-toolbar>
+
+<ng-template #installMetaMaskDialogTemplate>
+  <h1 class="mat-title grey">We couldn't find <strong>Metamask</strong> extension installed in your browser.
+    Please, install the <a class="primary" href="https://metamask.io/">extension</a> and try again.
+    If you have any questions please feel free to check our <a class="primary" href="https://help.orvium.io/tech/blockchain/">user guide</a>.
+  </h1>
+</ng-template>

@@ -1,0 +1,38 @@
+.login-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(254, 254, 254);
+  background: linear-gradient(0deg, var(--white) 0%, var(--primary) 100%);
+
+  .card {
+    min-height: 300px;
+    padding-top: 50px;
+
+    .title {
+      color: var(--primary-soft);
+    }
+
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .actions {
+      padding: 0 8px;
+      display: flex;
+      flex-direction: column;
+
+      .login-button {
+        width: 100%;
+      }
+
+      .or {
+        align-self: center;
+        margin: 10px 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+<div class="container">
+  <mat-card class="paper">
+    <mat-card-title class="mat-h1 title">Create New Paper</mat-card-title>
+    <mat-card-content class="inputs">
+      <form [formGroup]="paperForm" class="form">
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Title" formControlName="title" required>
+          <mat-error *ngIf="getControl('title').invalid">
+            {{ getErrorMessage(getControl('title')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Abstract</mat-label>
+          <input matInput placeholder="Abstract" formControlName="abstract">
+          <mat-error *ngIf="getControl('abstract').invalid">
+            {{ getErrorMessage(getControl('abstract')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>DOI</mat-label>
+          <input matInput placeholder="DOI" formControlName="doi">
+          <mat-error *ngIf="getControl('doi').invalid">
+            {{ getErrorMessage(getControl('doi')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Open Aire Identifier</mat-label>
+          <input matInput placeholder="Open Aire Identifier" formControlName="openAireIdentifier">
+          <mat-error *ngIf="getControl('openAireIdentifier').invalid">
+            {{ getErrorMessage(getControl('openAireIdentifier')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Git Repository</mat-label>
+          <input matInput placeholder="Git Repository" formControlName="gitRepository">
+          <mat-error *ngIf="getControl('gitRepository').invalid">
+            {{ getErrorMessage(getControl('gitRepository')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-checkbox formControlName="canBeReviewed" class="can-be-reviewed">Can Be Reviewed</mat-checkbox>
+        <mat-form-field appearance="fill">
+          <mat-label>Disciplines (separate with coma)</mat-label>
+          <input matInput placeholder="Disciplines" formControlName="disciplines">
+          <mat-error *ngIf="getControl('disciplines').invalid">
+            {{ getErrorMessage(getControl('disciplines')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Keywords (separate with coma)</mat-label>
+          <input matInput placeholder="Keywords" formControlName="keywords">
+          <mat-error *ngIf="getControl('keywords').invalid">
+            {{ getErrorMessage(getControl('keywords')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>References (separate with coma)</mat-label>
+          <input matInput placeholder="References" formControlName="references">
+          <mat-error *ngIf="getControl('references').invalid">
+            {{ getErrorMessage(getControl('references')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Images (separate with coma)</mat-label>
+          <input matInput placeholder="Images" formControlName="images">
+          <mat-error *ngIf="getControl('images').invalid">
+            {{ getErrorMessage(getControl('images')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Paper type</mat-label>
+          <mat-select formControlName="paperType">
+            <mat-option *ngFor="let type of getPaperTypesValues(); let i = index"
+                        [value]="getPaperTypesKeys(i)"
+            >{{ type }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <input type="file"
+               class="file-input"
+               (change)="onFileSelected($event)"
+               #fileUpload>
+        <div class="file-upload">
+          <button mat-mini-fab
+                  color="primary"
+                  class="upload-btn"
+                  (click)="fileUpload.click()">
+            <mat-icon>attach_file</mat-icon>
+          </button>
+          {{fileName || "No file uploaded yet."}}
+        </div>
+        <h2>Add authors</h2>
+        <div formArrayName="authors">
+          <div *ngFor="let author of authors.controls; let i = index">
+            <ng-container [formGroupName]="i">
+              <div class="authorsForm">
+                <mat-form-field appearance="fill">
+                  <mat-label>Name</mat-label>
+                  <input formControlName="name"
+                         matInput
+                         placeholder="Name">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Surname</mat-label>
+                  <input matInput
+                         formControlName="surname"
+                         placeholder="Surname">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Email</mat-label>
+                  <input matInput
+                         formControlName="email"
+                         placeholder="Email">
+                </mat-form-field>
+                <!--              <mat-form-field appearance="fill">-->
+                <!--                <mat-label>Orcid</mat-label>-->
+                <!--                <input matInput-->
+                <!--                       formControlName="orcid"-->
+                <!--                       placeholder="https://orcid.org/0000-0000-0000-0000"-->
+                <!--                       type="url">-->
+                <!--              </mat-form-field>-->
+                <button color="primary" mat-mini-fab (click)="addAuthor()">
+                  <mat-icon>add</mat-icon>
+                </button>
+                <button mat-mini-fab>
+                  <mat-icon (click)="deleteAuthor(i)">
+                    delete_forever
+                  </mat-icon>
+                </button>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </form>
+
+    </mat-card-content>
+    <mat-card-actions class="actions">
+      <button mat-flat-button
+              color="accent"
+              (click)="goBack()"
+      >Go back
+      </button>
+      <button mat-flat-button
+              color="primary"
+              [disabled]="paperForm.invalid"
+              (click)="create()"
+      >Save
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

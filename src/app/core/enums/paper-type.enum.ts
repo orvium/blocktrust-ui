@@ -1,0 +1,20 @@
+export enum PAPER_TYPE {
+  book = 'book',
+  bookSection = 'book section',
+  conferencePaper = 'conference paper',
+  article = 'article',
+  patent = 'patent',
+  preprint = 'preprint',
+  report = 'report',
+  dataset = 'dataset',
+  softwareDocumentation = 'software documentation',
+  thesis = 'thesis',
+  technicalNote = 'technical note',
+  workingPaper = 'working paper',
+  policyReport = 'policy report',
+  registeredReport = 'registered report',
+  proposal = 'proposal',
+  reviewArticle = 'review article',
+  video = 'video',
+  other = 'other'
+}

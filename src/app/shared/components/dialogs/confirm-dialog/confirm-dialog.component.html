@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+  <h2 class="primary mat-title">{{ title }}</h2>
+  <p class="mat-body">{{ content }}</p>
+  <div>
+    <button mat-raised-button color="primary" (click)="confirm()" class="dialog-button">
+      <mat-icon *ngIf="icon" class="icon-aligned">{{ icon }}</mat-icon>
+      {{ acceptMessage }}
+    </button>
+    <button mat-button (click)="cancel()" class="dialog-button">{{ cancelMessage }}</button>
+  </div>
+</div>

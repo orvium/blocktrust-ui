@@ -1,0 +1,14 @@
+<div class="login-container">
+  <mat-card class="card">
+    <mat-card-title class="mat-display-2 title">Welcome to BlockTrust</mat-card-title>
+    <mat-card-actions class="actions">
+      <button mat-flat-button color="primary" (click)="oauthLogin()">Log in with ORCID</button>
+      <div class="or">or</div>
+      <button mat-flat-button
+              color="accent"
+              (click)="guessLogin()"
+              class="login-button">Login as Guess
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

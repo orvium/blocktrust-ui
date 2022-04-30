@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  justify-content: center;
+
+  .paper {
+    max-width: 1200px;
+    min-width: 800px;
+
+    .title {
+      text-align: center;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .file-input {
+        display: none;
+      }
+
+      .upload-btn {
+        margin-right: 10px;
+      }
+
+      .download-link {
+        color: var(--primary);
+        cursor: pointer;
+        font-weight: 500;
+      }
+
+      .can-be-reviewed {
+        margin-top: 10px;
+      }
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+  }
+}

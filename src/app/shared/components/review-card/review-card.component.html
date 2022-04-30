@@ -1,0 +1,15 @@
+<mat-card class="container review-card">
+  <mat-card-title class="mat-title title">{{ review.title }}</mat-card-title>
+  <mat-card-actions class="actions">
+    <div class="mat-caption">
+      For: {{ review.paper.title }}
+      <br>
+      Created on: {{ review.createdAt | date:'longDate' }}
+      <br>
+      By: {{ review.creator.firstName }} {{ review.creator.lastName }}
+    </div>
+    <button mat-icon-button color="primary" (click)="edit()">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

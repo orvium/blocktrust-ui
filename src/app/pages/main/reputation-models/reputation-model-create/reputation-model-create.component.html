@@ -1,0 +1,55 @@
+<div class="container">
+  <mat-card class="paper">
+    <mat-card-title class="mat-display-1 title">Create New Model</mat-card-title>
+    <mat-card-content class="inputs">
+      <form [formGroup]="modelForm" class="form">
+        <div class="left">
+          <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Name" formControlName="name" required>
+            <mat-error *ngIf="modelForm.get('name').invalid">
+              You must enter a value
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <input matInput placeholder="description" formControlName="description" required>
+            <mat-error *ngIf="modelForm.get('description').invalid">
+              You must enter a value
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Source Code URL</mat-label>
+            <input type="url" matInput placeholder="sourceURL" formControlName="sourceCodeURL" required>
+            <mat-error *ngIf="modelForm.get('sourceCodeURL').invalid">
+              Not a valid url
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Provider</mat-label>
+            <input matInput placeholder="Provider" formControlName="provider">
+            <mat-error *ngIf="modelForm.get('provider').invalid">
+              You must enter a value
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="actions">
+      <button mat-flat-button
+              color="accent"
+              (click)="goBack()"
+      >Go back
+      </button>
+      <button mat-flat-button
+              color="primary"
+              [disabled]="modelForm.invalid"
+              (click)="create()"
+      >Save
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

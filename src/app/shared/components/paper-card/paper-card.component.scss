@@ -1,0 +1,15 @@
+.container {
+  .title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 8px;
+    color: grey;
+  }
+}

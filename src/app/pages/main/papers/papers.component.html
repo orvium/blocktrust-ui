@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="mat-display-1 top-line">
+    <span>All papers</span>
+    <div class="search-wrapper">
+      <input class="search-input"
+             type="text"
+             [placeholder]="' Search Papers'"
+             (change)="searchPapers($event)"
+      >
+      <mat-icon class="search-icon">search</mat-icon>
+    </div>
+    <button mat-flat-button
+            color="primary"
+            (click)="createPaper()"
+    >
+      <mat-icon>add</mat-icon>
+      Create New Paper
+    </button>
+  </div>
+  <div class="papers-list">
+    <app-paper-card *ngFor="let paper of papers" [paper]="paper"></app-paper-card>
+    <div *ngIf="papers?.length === 0">
+      <span>No papers found.</span>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@use 'styles/fonts.scss';
+@use 'styles/variables.scss';
+@use 'styles/overwrite.scss';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}

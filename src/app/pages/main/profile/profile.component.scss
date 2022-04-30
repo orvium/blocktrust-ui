@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: center;
+
+  .profile {
+
+    .title {
+      text-align: center;
+    }
+
+    .inputs {
+      min-width: 400px;
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    .actions {
+      text-align: center;
+    }
+  }
+}

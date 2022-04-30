@@ -1,0 +1,25 @@
+mat-sidenav .mat-list-base .mat-list-item {
+  .mat-list-item-content {
+    transition: padding-left 0.35s ease;
+  }
+
+  &.active {
+    .mat-list-item-content {
+      padding-left: 30px;
+    }
+  }
+}
+
+.paper-card, .review-card {
+  .mat-chip-list-wrapper {
+    flex-wrap: wrap;
+    height: 40px;
+    overflow: hidden;
+  }
+}
+
+.mat-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

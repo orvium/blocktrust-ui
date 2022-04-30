@@ -1,0 +1,56 @@
+<div class="container">
+  <mat-card class="profile">
+    <mat-card-title class="mat-h1 title">My profile</mat-card-title>
+    <mat-card-content class="inputs">
+      <form [formGroup]="userForm" class="form">
+        <mat-form-field appearance="fill">
+          <mat-label>First name</mat-label>
+          <input matInput placeholder="John" formControlName="firstName" required>
+          <mat-error *ngIf="getControl('firstName').invalid">
+            {{ getErrorMessage(getControl('firstName')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Last name</mat-label>
+          <input matInput placeholder="Doe" formControlName="lastName" required>
+          <mat-error *ngIf="getControl('lastName').invalid">
+            {{ getErrorMessage(getControl('lastName')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="test@gmail.com" formControlName="email" required>
+          <mat-error *ngIf="getControl('email').invalid">
+            {{ getErrorMessage(getControl('email')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>About me</mat-label>
+          <input matInput placeholder="Info about you" formControlName="aboutMe">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>LinkedIn</mat-label>
+          <input matInput placeholder="LinkedIn link" formControlName="linkedin">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Role</mat-label>
+          <input matInput placeholder="student" formControlName="role">
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="actions">
+      <button mat-flat-button
+              color="primary"
+              class="save-button"
+              [disabled]="userForm.invalid"
+              (click)="save()"
+      >Save
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

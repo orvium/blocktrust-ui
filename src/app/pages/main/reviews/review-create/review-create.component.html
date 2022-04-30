@@ -1,0 +1,70 @@
+<div class="container">
+  <mat-card class="paper">
+    <mat-card-title class="mat-display-1 title">Create review for "{{ sourcePaper.title }}"</mat-card-title>
+    <mat-card-content class="inputs">
+      <form [formGroup]="reviewForm" class="form">
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Title" formControlName="title" required>
+          <mat-error *ngIf="getControl('title').invalid">
+            {{ getErrorMessage(getControl('title')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Comment</mat-label>
+          <input matInput placeholder="Comment" formControlName="comment" required>
+          <mat-error *ngIf="getControl('comment').invalid">
+            {{ getErrorMessage(getControl('comment')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>DOI</mat-label>
+          <input matInput placeholder="DOI" formControlName="doi">
+          <mat-error *ngIf="getControl('doi').invalid">
+            {{ getErrorMessage(getControl('doi')) }}
+          </mat-error>
+        </mat-form-field>
+
+<!--        <mat-form-field appearance="fill">-->
+<!--          <mat-label>Reward</mat-label>-->
+<!--          <input matInput placeholder="Reward" formControlName="reward" type="number">-->
+<!--          <mat-error *ngIf="getControl('reward').invalid">-->
+<!--            {{ getErrorMessage(getControl('reward')) }}-->
+<!--          </mat-error>-->
+<!--        </mat-form-field>-->
+
+        <mat-checkbox formControlName="revealReviewerIdentity" class="form-checkbox">Reveal reviewer identity</mat-checkbox>
+
+        <input type="file"
+               class="file-input"
+               (change)="onFileSelected($event)"
+               #fileUpload
+        >
+        <div class="file-upload">
+          <button mat-mini-fab
+                  color="primary"
+                  class="upload-btn"
+                  (click)="fileUpload.click()"
+          >
+            <mat-icon>attach_file</mat-icon>
+          </button>
+          {{fileName || "No file uploaded yet."}}
+        </div>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="actions">
+      <button mat-flat-button
+              color="accent"
+              (click)="goBack()"
+      >Go back
+      </button>
+      <button mat-flat-button
+              color="primary"
+              (click)="create()"
+      >Create
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

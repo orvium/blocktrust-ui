@@ -1,0 +1,103 @@
+<div class="container">
+  <mat-card class="paper">
+    <mat-card-title class="mat-h1 title">{{ paper.title }}</mat-card-title>
+    <mat-card-content class="inputs">
+      <form [formGroup]="paperForm" class="form">
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Title" formControlName="title" required>
+          <mat-error *ngIf="getControl('title').invalid">
+            {{ getErrorMessage(getControl('title')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Abstract</mat-label>
+          <textarea cdkTextareaAutosize matInput placeholder="Abstract" formControlName="abstract"></textarea>
+          <mat-error *ngIf="getControl('abstract').invalid">
+            {{ getErrorMessage(getControl('abstract')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Git Repository</mat-label>
+          <input matInput placeholder="Git Repository" formControlName="gitRepository">
+          <mat-error *ngIf="getControl('gitRepository').invalid">
+            {{ getErrorMessage(getControl('gitRepository')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Paper type</mat-label>
+          <mat-select formControlName="paperType">
+            <mat-option *ngFor="let type of getPaperTypesValues(); let i = index"
+                        [value]="getPaperTypesKeys(i)"
+            >{{ type }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-checkbox formControlName="canBeReviewed" class="can-be-reviewed">Can Be Reviewed</mat-checkbox>
+        <mat-form-field appearance="fill">
+          <mat-label>Disciplines (separate with coma)</mat-label>
+          <input matInput placeholder="Disciplines" formControlName="disciplines">
+          <mat-error *ngIf="getControl('disciplines').invalid">
+            {{ getErrorMessage(getControl('disciplines')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Keywords (separate with coma)</mat-label>
+          <input matInput placeholder="Keywords" formControlName="keywords">
+          <mat-error *ngIf="getControl('keywords').invalid">
+            {{ getErrorMessage(getControl('keywords')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>References (separate with coma)</mat-label>
+          <input matInput placeholder="References" formControlName="references">
+          <mat-error *ngIf="getControl('references').invalid">
+            {{ getErrorMessage(getControl('references')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Images (separate with coma)</mat-label>
+          <input matInput placeholder="Images" formControlName="images">
+          <mat-error *ngIf="getControl('images').invalid">
+            {{ getErrorMessage(getControl('images')) }}
+          </mat-error>
+        </mat-form-field>
+
+        <input type="file"
+               class="file-input"
+               (change)="onFileSelected($event)"
+               #fileUpload>
+        <div>
+          <button mat-mini-fab
+                  color="primary"
+                  class="upload-btn"
+                  (click)="fileUpload.click()">
+            <mat-icon>attach_file</mat-icon>
+          </button>
+          <span *ngIf="!fileName; else downloadFile">
+              No file uploaded yet.
+            </span>
+          <ng-template #downloadFile>
+            <span class="download-link" (click)="onDownloadFile()">{{fileName}}</span>
+          </ng-template>
+        </div>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="actions">
+      <button mat-flat-button
+              (click)="goBack()">Go back
+      </button>
+      <button mat-flat-button
+              color="primary"
+              [disabled]="paperForm.invalid"
+              (click)="save()">Save
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

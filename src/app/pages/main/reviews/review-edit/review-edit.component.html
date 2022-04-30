@@ -1,0 +1,29 @@
+<div class="container">
+  <mat-card class="review">
+    <mat-card-title class="mat-display-1 title">{{ review.title }}</mat-card-title>
+    <mat-card-content class="inputs">
+      <form [formGroup]="reviewForm" class="form">
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Title" formControlName="title" required>
+          <mat-error *ngIf="getControl('title').invalid">
+            {{ getErrorMessage(getControl('title')) }}
+          </mat-error>
+        </mat-form-field>
+
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="actions">
+      <button mat-flat-button
+              color="accent"
+              (click)="goBack()"
+      >Go back
+      </button>
+      <button mat-flat-button
+              color="primary"
+              (click)="save()"
+      >Save
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

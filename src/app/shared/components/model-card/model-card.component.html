@@ -1,0 +1,29 @@
+<mat-card class="container paper-card">
+  <mat-card-title class="mat-title title">{{ model.name }}</mat-card-title>
+  <mat-card-actions class="actions">
+    <div class="mat-caption">
+      Version {{model.version}}
+      <br>
+      Created on: {{ model.createdAt | date:'longDate' }}
+      <br>
+      By: {{ model.creator.firstName }} {{ model.creator.lastName }}
+      <br>
+      Provided by: {{model.provider}}
+      <div>
+        {{model.description}}
+      </div>
+      <a href="{{model.sourceCodeURL}}">Source code</a>
+    </div>
+    <button mat-icon-button
+            color="primary"
+            (click)="edit()"
+            matTooltip="Edit model">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button
+            color="primary"
+            matTooltip="Create a new version">
+      <mat-icon>add_box</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

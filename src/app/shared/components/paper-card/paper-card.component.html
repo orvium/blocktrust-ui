@@ -1,0 +1,31 @@
+<mat-card class="container paper-card">
+  <mat-card-title class="mat-title title">{{ paper.title }}</mat-card-title>
+  <mat-card-content>
+    <mat-chip-list>
+      <mat-chip *ngFor="let keyword of paper.keywords"
+                class="chip"
+      >{{ keyword }}</mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
+  <mat-card-actions class="actions">
+    <div class="mat-caption">
+      Created on: {{ paper.createdAt | date:'longDate' }}
+      <br>
+      By: {{ paper.creator?.firstName }} {{ paper.creator?.lastName }}
+    </div>
+    <div>
+      <button mat-icon-button
+              color="primary"
+              (click)="createReview()"
+              matTooltip="Create review for this paper">
+        <mat-icon>note_add</mat-icon>
+      </button>
+      <button mat-icon-button
+              color="primary"
+              (click)="edit()"
+              matTooltip="Edit paper">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,14 @@
+.container {
+  .top-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .models-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    grid-row-gap: 15px;
+    grid-column-gap: 15px;
+  }
+}

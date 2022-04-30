@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+
+  .paper {
+    width: 100%;
+
+    .title {
+      text-align: center;
+    }
+
+    .form {
+      display: flex;
+      gap: 50px;
+
+      .left, .right {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+
+      .file-input {
+        display: none;
+      }
+
+      .can-be-reviewed {
+        margin-top: 10px;
+      }
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}

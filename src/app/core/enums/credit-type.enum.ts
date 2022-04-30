@@ -1,0 +1,16 @@
+export enum CREDIT_TYPE {
+  methodology = 'methodology',
+  conceptualization = 'conceptualization',
+  software = 'software',
+  validation = 'validation',
+  formalAnalysis = 'formal analysis',
+  investigation = 'investigation',
+  resources = 'resources',
+  dataCuration = 'data curation',
+  writingOriginalDraft = 'writing original draft',
+  writingReviewEditing = 'writing review and editing',
+  visualization = 'visualization',
+  supervision = 'supervision',
+  projectAdministration = 'project administration',
+  fundingAcquisition = 'funding acquisition',
+}

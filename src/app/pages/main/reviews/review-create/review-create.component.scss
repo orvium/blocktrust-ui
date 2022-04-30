@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: center;
+
+  .paper {
+    min-width: 700px;
+
+    .title {
+      text-align: center;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .file-input {
+        display: none;
+      }
+
+      .can-be-reviewed {
+        margin-top: 10px;
+      }
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}

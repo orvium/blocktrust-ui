@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="mat-display-1 top-line">
+    <span>All reputation models</span>
+    <button mat-flat-button
+            color="primary"
+            (click)="createModel()"
+    >
+      <mat-icon>add</mat-icon>
+      Create New Model
+    </button>
+  </div>
+  <div class="models-list">
+    <app-model-card *ngFor="let model of models" [model]="model"></app-model-card>
+  </div>
+</div>
